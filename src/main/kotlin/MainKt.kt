@@ -3,6 +3,7 @@ fun main(){
     val post2 = Post(text = "Post2")
     val post3 = Post(id = 2, text = "Post3")
     val post4 = Post(id = 3, text = "Post4")
+    val post5 = Post(id = 4, text = "Post4")
 
     WallService.add(post1)
     WallService.add(post2)
