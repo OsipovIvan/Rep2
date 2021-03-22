@@ -1,28 +1,45 @@
 import java.util.*
 
 data class Post(
-    val id: Int,
-    val ownerId: Int,
-    val fromId: Int,
-    val createdBy: Int,
-    val date: Int,
-    val text: String,
-    val replyOwnerId: Int,
-    val replyPostId: Int,
-    val friendsOnly: Boolean,
-    val comments: Any,
-    val copyright: Any,
-    val likes: Any,
-    val reposts: Any,
-    val views: Any,
-    val postType: String,
-    val signerId: Int,
-    val canPin: Boolean,
-    val canDelete: Boolean,
-    val canEdit: Boolean,
-    val isPinned: Boolean,
-    val markedAsAds: Boolean,
-    val isFavorite: Boolean,
-    val donut: Any,
-    val postponedId: Int
-)
+    var id: Int = -1,
+    var ownerId: Int = 0,
+    val fromId: Int = 0,
+    var createdBy: Int = 0,
+    val date: Int = 0,
+    val text: String = "",
+    val replyOwnerId: Int = 0,
+    val replyPostId: Int = 1,
+    val friendsOnly: Boolean = false,
+    val comments: Any = Any(),
+    val copyright: Any = Any(),
+    val likes: Any = Any(),
+    val reposts: Any = Any(),
+    val views: Any = Any(),
+    val postType: String = "",
+    val signerId: Int = 0,
+    val canPin: Boolean = false,
+    val canDelete: Boolean = false,
+    val canEdit: Boolean = false,
+    val isPinned: Boolean = false,
+    val markedAsAds: Boolean = false,
+    val isFavorite: Boolean = false,
+    val donut: Any = Any(),
+    val postponedId: Int = 0
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Post
+
+        if (id != other.id) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return id
+    }
+
+
+}
