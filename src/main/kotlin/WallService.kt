@@ -1,5 +1,8 @@
+import exception.PostNotFoundException
+
 object WallService{
-    private var posts = mutableListOf<Post>()
+    private val posts = mutableListOf<Post>()
+    private val comments = mutableListOf<Comment>()
     private var id = 0
 
     fun add(post: Post): Post {
@@ -10,7 +13,7 @@ object WallService{
 
     fun update(post: Post): Boolean {
 
-        val postForUpdate = posts.find {postInList -> postInList.id == post.id  }
+        val postForUpdate = findPost(post.id)
         if (postForUpdate != null){
             post.ownerId = postForUpdate.replyOwnerId
             post.createdBy = postForUpdate.createdBy
@@ -19,6 +22,19 @@ object WallService{
         }
 
         return false
+    }
+
+    fun createComment(comment: Comment) {
+        val postId = comment.postId
+        if (findPost(postId) != null) {
+            comments.add(comment)
+        } else{
+            throw PostNotFoundException("Поста к этоме коменту нет")
+        }
+    }
+
+    fun findPost(postId: Int): Post? {
+        return posts.find { postInList -> postInList.id == postId }
     }
 
     override fun toString(): String {
