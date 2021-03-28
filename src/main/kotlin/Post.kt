@@ -1,4 +1,4 @@
-import java.util.*
+import attachment.AbstractAttachment
 
 data class Post(
     var id: Int = -1,
@@ -14,9 +14,10 @@ data class Post(
     val copyright: Any = Any(),
     val likes: Any = Any(),
     val reposts: Any = Any(),
-    val views: Any = Any(),
+    val views: Any? = null,
     val postType: String = "",
     val postSource: Any? = null,
+    val attachments: Array<AbstractAttachment>? = null,
     val geo: Any? = null,
     val signerId: Int = 0,
     val copyHistory: Array<Any>? = null,
@@ -43,6 +44,4 @@ data class Post(
     override fun hashCode(): Int {
         return id
     }
-
-
 }
