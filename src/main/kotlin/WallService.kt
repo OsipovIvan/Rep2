@@ -40,4 +40,9 @@ object WallService{
     override fun toString(): String {
         return posts.toString()
     }
+
+    fun clearPosts(){
+        id = 0
+        posts.clear()
+    }
 }
