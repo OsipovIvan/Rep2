@@ -14,7 +14,7 @@ data class Post(
     val copyright: Any = Any(),
     val likes: Any = Any(),
     val reposts: Any = Any(),
-    val views: Any = Any(),
+    val views: Any? = null,
     val postType: String = "",
     val postSource: Any? = null,
     val attachments: Array<AbstractAttachment>? = null,
